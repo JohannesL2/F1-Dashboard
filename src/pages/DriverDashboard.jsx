@@ -123,7 +123,7 @@ function SkeletonLoader() {
     <tbody>
     {carData.map((item, index) => (
       <tr key={index} className="text-center border-1">
-      <td><img src={item.headshot_url} alt="" className='mx-auto w-16 h-16 object-contain'/></td>
+      <td><img src={item.headshot_url} alt="" className='mx-auto w-24 h-24 sm:w-16 sm:h-16 object-contain'/></td>
       <td>{item.driver_number}</td>
       <td>{item.full_name}</td>
       <td>{item.team_name}</td>
