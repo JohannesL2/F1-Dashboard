@@ -147,16 +147,16 @@ function SkeletonLoader() {
           <img src={item.headshot_url} alt={item.full_name} 
           className='w-16 h-16 rounded-full object-contain'
           />
-          <div className='flex flex-col flex-grow'>
+          <div className='flex flex-col flex-grow min-w-0'>
             <span className='font-bold text-lg flex items-center gap-2'>
               {item.full_name} <span className='font-normal'>{item.country_code}</span>
             </span>
-            <span>
+            <span className='truncate text-sm text-gray-300'>
               {item.team_name}
             </span>
           </div>
-          <div>{item.driver_number}</div>
-          <div className='p-4 rounded-full' style={{backgroundColor: `#${item.team_colour}`}}/>
+          <div className='text-red-600 font-mono font-bold text-xl flex-shrink-0 mr-2'>{item.driver_number}</div>
+          <div className='w-8 h-8 rounded-full flex-shrink-0 border-2 border-white shadow-md' style={{backgroundColor: `#${item.team_colour}`}}/>
         </div>
       ))}
       
