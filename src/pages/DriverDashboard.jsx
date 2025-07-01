@@ -138,24 +138,25 @@ function SkeletonLoader() {
     </table>
 
     {/*Cards view for mobile*/}
-    <div className='sm:hidden space-y-4'>
+    <div className='sm:hidden space-y-4 bg-gray-900 p-4'>
       {carData.map((item) => (
         <div
           key={item.driver_number}
-          className='border p-4 rounded-md flex items-center gap-4 shadow-sm'
+          className='bg-gradient-to-r from-gray-800 via-gray-900 to-black border border-red-600 rounded-xl flex items-center gap-6 p-5 shadow-lg hover:shadow-red-600 transition-shadow duration-300 text-white'
         >
           <img src={item.headshot_url} alt={item.full_name} 
           className='w-16 h-16 rounded-full object-contain'
           />
           <div className='flex flex-col flex-grow'>
             <span className='font-bold text-lg flex items-center gap-2'>
-              {item.full_name}
+              {item.full_name} <span className='font-normal'>{item.country_code}</span>
             </span>
             <span>
               {item.team_name}
             </span>
           </div>
           <div>{item.driver_number}</div>
+          <div className='p-4 rounded-full' style={{backgroundColor: `#${item.team_colour}`}}/>
         </div>
       ))}
       
