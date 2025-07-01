@@ -32,7 +32,7 @@ useEffect(() => {
 function SkeletonLoader() {
   return (
     
-<div role="status" class="fixed inset-0 p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700 mt-20">
+<div role="status" class="fixed inset-0 p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700 mt-30">
     <div class="flex items-center justify-between">
         <div>
             <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
@@ -123,7 +123,7 @@ function SkeletonLoader() {
     <tbody>
     {carData.map((item, index) => (
       <tr key={index} className="text-center border-1">
-      <td><img src={item.headshot_url} alt="" /></td>
+      <td><img src={item.headshot_url} alt="" className='mx-auto w-16 h-16 object-contain'/></td>
       <td>{item.driver_number}</td>
       <td>{item.full_name}</td>
       <td>{item.team_name}</td>
