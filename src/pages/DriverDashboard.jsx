@@ -155,7 +155,7 @@ function SkeletonLoader() {
               {item.team_name}
             </span>
           </div>
-          <div className='text-red-600 font-mono font-bold text-xl flex-shrink-0 mr-2'>{item.driver_number}</div>
+          <div className='text-red-600 font-mono font-bold text-lg flex-shrink-0'>{item.driver_number}</div>
           <div className='w-8 h-8 rounded-full flex-shrink-0 border-2 border-white shadow-md' style={{backgroundColor: `#${item.team_colour}`}}/>
         </div>
       ))}
