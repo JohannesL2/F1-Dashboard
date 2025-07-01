@@ -109,32 +109,61 @@ function SkeletonLoader() {
     {loading ? (
       <SkeletonLoader/>
     ) : (
-    <table className="table-auto w-full">
+      <>
+    <table className="table-auto w-full border-collapse hidden sm:table">
       <thead>
         <tr className="bg-gray-100">
           <th></th>
           <th>Driver number</th>
           <th>Name</th>
-          <th>Team</th>
-          <th>Team Colour</th>
-          <th>Country</th>
+          <th className='hidden sm:table-cell'>Team</th>
+          <th className='hidden md:table-cell'>Team Colour</th>
+          <th className='hidden md:table-cell'>Country</th>
         </tr>
       </thead>
     <tbody>
     {carData.map((item, index) => (
-      <tr key={index} className="text-center border-1">
-      <td><img src={item.headshot_url} alt="" className='mx-auto w-24 h-24 sm:w-16 sm:h-16 object-contain'/></td>
+      <tr key={index} className="text-center border">
+      <td><img src={item.headshot_url} alt="" className='mx-auto w-24 h-24 sm:w-16 sm:h-16 object-contain rounded-full'/></td>
       <td>{item.driver_number}</td>
       <td>{item.full_name}</td>
-      <td>{item.team_name}</td>
-      <td style={{backgroundColor: `#${item.team_colour}`}}></td>
-      <td>{item.country_code}</td>
+      <td className='hidden sm:table-cell'>{item.team_name}</td>
+      <td 
+        className='hidden md:table-cell'
+        style={{backgroundColor: `#${item.team_colour}`}}></td>
+      <td className='hidden md:table-cell'>{item.country_code}</td>
       </tr>
     ))}
     </tbody>
     </table>
+
+    {/*Cards view for mobile*/}
+    <div className='sm:hidden space-y-4'>
+      {carData.map((item) => (
+        <div
+          key={item.driver_number}
+          className='border p-4 rounded-md flex items-center gap-4 shadow-sm'
+        >
+          <img src={item.headshot_url} alt={item.full_name} 
+          className='w-16 h-16 rounded-full object-contain'
+          />
+          <div className='flex flex-col flex-grow'>
+            <span className='font-bold text-lg flex items-center gap-2'>
+              {item.full_name}
+            </span>
+            <span>
+              {item.team_name}
+            </span>
+          </div>
+          <div>{item.driver_number}</div>
+        </div>
+      ))}
+      
+    </div>
+    </>
     )}
     </div>
+    
   )
 }
 
