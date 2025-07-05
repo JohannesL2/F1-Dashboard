@@ -9,8 +9,15 @@ import { FaHeadset } from 'react-icons/fa6'
 
 const HomePage = () => {
   return (
-    <>
-    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 p-4 sm:p-10 text-xl sm:text-3xl font-semibold flex-grow min-h-[900px] items-center'>
+    <div>
+        <div
+      className="relative min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: "url('/homepage-bg.jpg')" }}
+    >
+      {/* Overlay mörk transparent */}
+      <div className="absolute bg-black bg-opacity-70"></div>
+
+    <div className='relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 sm:p-10 text-xl sm:text-3xl font-semibold flex-grow min-h-[900px] items-center'>
 
       <Link 
       to='/driver_dashboard'
@@ -43,7 +50,8 @@ const HomePage = () => {
       Laps Dashboard</Link>
     </div>
     <Footer/>
-    </>
+    </div>
+    </div>
   )
 }
 
