@@ -19,10 +19,10 @@ const HomePage = () => {
       Driver Dashboard</Link>
 
       <Link 
-      to='/DriverDashboard'
+      to='/radio_dashboard'
       className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
-      ><GiStopwatch className='inline mr-2'/>
-      Laps Dashboard</Link>
+      ><FaHeadset className='inline mr-2'/>
+      Radio Dashboard</Link>
       
       <Link 
       to='/DriverDashboard'
@@ -39,8 +39,8 @@ const HomePage = () => {
       <Link 
       to='/DriverDashboard'
       className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
-      ><FaHeadset className='inline mr-2'/>
-      Radio Dashboard</Link>
+      ><GiStopwatch className='inline mr-2'/>
+      Laps Dashboard</Link>
     </div>
     <Footer/>
     </>

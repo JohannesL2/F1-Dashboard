@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import DriverDashboard from "./pages/DriverDashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import RadioDashboard from "./pages/RadioDashboard";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/driver_dashboard" element={<DriverDashboard/>}/>
+      <Route path="/radio_dashboard" element={<RadioDashboard/>}/>
     </Routes>
     </div>
   )
