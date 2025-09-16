@@ -38,10 +38,10 @@ const HomePage = () => {
       Car Dashboard</Link>
 
       <Link 
-      to=''
-      className='bg-gray-400 text-gray-700 cursor-not-allowed text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
+      to='/circuit_dashboard'
+      className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
       ><GoLocation className='inline mr-2'/>
-      Location Dashboard</Link>
+      Circuit Dashboard</Link>
 
       <Link 
       to=''
