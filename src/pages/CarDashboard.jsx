@@ -25,6 +25,14 @@ const CarDashboard = () => {
 fetchData();
 }, []);
 
+const team_logo = {
+  McLaren: "https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg",
+  Ferrari: "https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515318_10187.png",
+  Mercedes: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mercedes-Benz_in_Formula_One_logo.svg/375px-Mercedes-Benz_in_Formula_One_logo.svg.png",
+  RedBull: "https://upload.wikimedia.org/wikipedia/en/4/44/Red_bull_racing.png",
+  AstonMartin: "https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Aston_Martin_Aramco_2024_logo.png/330px-Aston_Martin_Aramco_2024_logo.png",
+  Williams: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Atlassian_Williams_Racing_2025.svg/375px-Atlassian_Williams_Racing_2025.svg.png",
+};
 
 useEffect(() => {
   const timer = setTimeout(() => setLoading(false), 5000);
@@ -117,6 +125,7 @@ function SkeletonLoader() {
     <table className="table-auto w-full border-collapse hidden sm:table">
       <thead>
         <tr className="bg-gray-100">
+          <th>Image</th>
           <th>Position</th>
           <th>Team</th>
           <th>Nationality</th>
@@ -127,6 +136,11 @@ function SkeletonLoader() {
     <tbody>
     {carData.map((item) => (
       <tr key={item.Constructor.constructorId} className="text-center border">
+      <td>
+        {team_logo[item.Constructor.name] && (
+      <img src={team_logo[item.Constructor.name]} alt="" className='size-16 border-1 m-2'/>
+        )}
+      </td>
       <td>{item.position}</td>
       <td><a href={item.Constructor.url} className='text-blue-600 hover:underline'>{item.Constructor.name}</a></td>
       <td>{item.Constructor.nationality}</td>
@@ -144,6 +158,7 @@ function SkeletonLoader() {
           key={item.Constructor.constructorId}
           className='bg-gradient-to-r from-gray-800 via-gray-900 to-black border border-red-600 rounded-xl flex items-center gap-6 p-5 shadow-lg hover:shadow-red-600 transition-shadow duration-300 text-white'
         >
+          <img src={team_logo.McLaren} alt="" />
 <a href={item.Constructor.url} className='text-blue-600 hover:underline'>{item.Constructor.name}</a>
           <div className='flex flex-col flex-grow min-w-0'>
             <span className='font-bold text-lg flex items-center gap-2'>
