@@ -11,7 +11,6 @@ function App() {
 
   return (
     <div>
-      <Header/>
     <Routes>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/driver_dashboard" element={<DriverDashboard/>}/>

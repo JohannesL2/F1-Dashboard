@@ -112,7 +112,11 @@ function SkeletonLoader() {
     
           <Link 
       to='/'
-      className='p-4 flex items-center gap-2 font-bold'
+      className='group inline-flex items-center gap-2 px-5 py-3 font-bold uppercase tracking-wide 
+      bg-gradient-to-r from-red-600 via-red-700 to-black 
+      text-white rounded-lg shadow-lg
+      transition-all duration-300 
+      hover:scale-105 hover:shadow-red-500/50 m-2'
       > <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
       Go back</Link>
 
@@ -135,7 +139,9 @@ function SkeletonLoader() {
       </thead>
     <tbody>
     {carData.map((item) => (
-      <tr key={item.Constructor.constructorId} className="text-center border">
+      <tr key={item.Constructor.constructorId} className="text-center border-b border-gray-700 
+             bg-gray-900 hover:bg-gray-800 
+             transition-colors duration-300">
       <td>
         {team_logo[item.Constructor.name] && (
       <img src={team_logo[item.Constructor.name]} alt="" className='size-16 border-1 m-2'/>

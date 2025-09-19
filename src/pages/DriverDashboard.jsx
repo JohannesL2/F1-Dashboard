@@ -101,7 +101,12 @@ function SkeletonLoader() {
     
           <Link 
       to='/'
-      className='p-4 flex items-center gap-2 font-bold'
+      className='group inline-flex items-center gap-2 px-5 py-3 
+             font-bold uppercase tracking-wide 
+             bg-gradient-to-r from-red-600 via-red-700 to-black 
+             text-white rounded-lg shadow-lg
+             transition-all duration-300 
+             hover:scale-105 hover:shadow-red-500/50 m-2'
       > <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
       Go back</Link>
 
@@ -112,7 +117,7 @@ function SkeletonLoader() {
       <>
     <table className="table-auto w-full border-collapse hidden sm:table">
       <thead>
-        <tr className="bg-gray-100">
+        <tr className="bg-gradient-to-r from-gray-800 via-red-700 to-black">
           <th></th>
           <th>Driver number</th>
           <th>Name</th>
@@ -123,7 +128,9 @@ function SkeletonLoader() {
       </thead>
     <tbody>
     {carData.map((item, index) => (
-      <tr key={index} className="text-center border">
+      <tr key={index} className="text-center border-b border-gray-700 
+             bg-gray-900 hover:bg-gray-800 
+             transition-colors duration-300">
       <td><img src={item.headshot_url} alt="" className='mx-auto w-24 h-24 sm:w-16 sm:h-16 object-contain rounded-full'/></td>
       <td>{item.driver_number}</td>
       <td>{item.full_name}</td>
