@@ -60,8 +60,8 @@ const HomePage = () => {
 
       <Link 
       to=''
-      className='group bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center gap-2'
-      ><GiStopwatch className='inline mr-2 group-hover:rotate-12 group-hover:scale-125 duration-300'/>
+      className='bg-gray-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold transition-transform duration-300 flex flex-col items-center justify-center gap-2 cursor-not-allowed'
+      ><GiStopwatch className='inline mr-2'/>
       Laps Dashboard</Link>
     </div>
     <Footer/>
