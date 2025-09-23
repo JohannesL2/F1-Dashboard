@@ -123,7 +123,7 @@ function SkeletonLoader() {
       <>
     <table className="table-auto w-full border-collapse hidden sm:table">
       <thead>
-        <tr className="bg-gradient-to-r from-gray-800 via-red-700 to-black">
+        <tr className="bg-gradient-to-r from-gray-800 via-red-700 to-black text-white">
           <th></th>
           <th>Driver number</th>
           <th>Name</th>
