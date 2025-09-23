@@ -39,4 +39,4 @@ A sleek and interactive **Formula 1 dashboard** built with **React**, **Tailwind
 
 1. Clone the repo:
 ```bash
-git clone https://github.com/yourusername/f1-dashboard.git
+git clone https://github.com/JohannesL2/f1-dashboard.git
