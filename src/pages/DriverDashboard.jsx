@@ -1,11 +1,17 @@
 import React from 'react'
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useRef, useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
+import { ImageModal } from '../components/ImageModal'
 
 const DriverDashboard = () => {
     const [carData, setCarData] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const modalRef = useRef(null);
+
+    const openModal = (driver) => {
+      modalRef.current?.show(driver)
+    }
 
   useEffect(() => {
   const fetchData = async () => {
@@ -131,7 +137,11 @@ function SkeletonLoader() {
       <tr key={index} className="text-center border-b border-gray-700 
              bg-gray-900 hover:bg-gray-800 
              transition-colors duration-300">
-      <td><img src={item.headshot_url} alt="" className='mx-auto w-24 h-24 sm:w-16 sm:h-16 object-contain rounded-full'/></td>
+      <td
+        className='p-3 cursor-pointer'
+        onClick={() => openModal(item)}
+      >
+        <img src={item.headshot_url} alt="" className='mx-auto w-24 h-24 sm:w-16 sm:h-16 object-contain rounded-full'/></td>
       <td>{item.driver_number}</td>
       <td>{item.full_name}</td>
       <td className='hidden sm:table-cell'>{item.team_name}</td>
@@ -153,6 +163,7 @@ function SkeletonLoader() {
         >
           <img src={item.headshot_url} alt={item.full_name} 
           className='w-16 h-16 rounded-full object-contain'
+        onClick={() => openModal(item)}
           />
           <div className='flex flex-col flex-grow min-w-0'>
             <span className='font-bold text-lg flex items-center gap-2'>
@@ -170,6 +181,7 @@ function SkeletonLoader() {
     </div>
     </>
     )}
+    <ImageModal ref={modalRef}/>
     </div>
     
   )

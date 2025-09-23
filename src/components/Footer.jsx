@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa6'
 
 const Footer = () => {
   return (
-    <div className='w-full bg-black text-white p-4 shadow-md flex items-center justify-center gap-6 hover:bg-neutral-900 transition-colors'>
+    <div className='w-full bottom-0 bg-black text-white p-4 shadow-md flex items-center justify-center gap-6 hover:bg-neutral-900 transition-colors'>
     <h1 className="text-xs sm:text-sm font-extrabold tracking-widest uppercase select-none">
       Created by Johannesl2 using OpenF1 API
     </h1>
