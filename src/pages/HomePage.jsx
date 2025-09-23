@@ -1,11 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
-import { FaHelmetSafety } from 'react-icons/fa6'
+import { FaHelmetSafety, FaCarSide, FaHeadset } from 'react-icons/fa6'
 import { GiStopwatch } from 'react-icons/gi'
-import { FaCarSide } from 'react-icons/fa6'
 import { GoLocation } from 'react-icons/go'
-import { FaHeadset } from 'react-icons/fa6'
 import { Typewriter } from 'react-simple-typewriter'
 
 const HomePage = () => {
@@ -38,32 +36,32 @@ const HomePage = () => {
 
       <Link 
       to='/driver_dashboard'
-      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
-      ><FaHelmetSafety className='inline mr-2'/>
+      className='group bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center gap-2'
+      ><FaHelmetSafety className='inline mr-2 group-hover:rotate-12 group-hover:scale-125 duration-300'/>
       Driver Dashboard</Link>
 
       <Link 
       to='/radio_dashboard'
-      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
-      ><FaHeadset className='inline mr-2'/>
+      className='group bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center gap-2'
+      ><FaHeadset className='inline mr-2 group-hover:rotate-12 group-hover:scale-125 duration-300'/>
       Radio Dashboard</Link>
       
       <Link 
       to='/car_dashboard'
-      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
-      ><FaCarSide className='inline mr-2'/>
+      className='group bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center gap-2'
+      ><FaCarSide className='inline mr-2 group-hover:rotate-12 group-hover:scale-125 duration-300'/>
       Car Dashboard</Link>
 
       <Link 
       to='/circuit_dashboard'
-      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
-      ><GoLocation className='inline mr-2'/>
+      className='group bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center gap-2'
+      ><GoLocation className='inline mr-2 group-hover:rotate-12 group-hover:scale-125 duration-300'/>
       Circuit Dashboard</Link>
 
       <Link 
       to=''
-      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
-      ><GiStopwatch className='inline mr-2'/>
+      className='group bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-center gap-2'
+      ><GiStopwatch className='inline mr-2 group-hover:rotate-12 group-hover:scale-125 duration-300'/>
       Laps Dashboard</Link>
     </div>
     <Footer/>
