@@ -28,31 +28,31 @@ const HomePage = () => {
 
       <Link 
       to='/driver_dashboard'
-      className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
+      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
       ><FaHelmetSafety className='inline mr-2'/>
       Driver Dashboard</Link>
 
       <Link 
       to='/radio_dashboard'
-      className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
+      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
       ><FaHeadset className='inline mr-2'/>
       Radio Dashboard</Link>
       
       <Link 
       to='/car_dashboard'
-      className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
+      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
       ><FaCarSide className='inline mr-2'/>
       Car Dashboard</Link>
 
       <Link 
       to='/circuit_dashboard'
-      className='bg-red-600 text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
+      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
       ><GoLocation className='inline mr-2'/>
       Circuit Dashboard</Link>
 
       <Link 
       to=''
-      className='bg-gray-400 text-gray-700 cursor-not-allowed text-white whitespace-normal break-words rounded-lg p-4 shadow-lg py-10 text-center text-3xl hover:text-black border-5 transition-all duration-300 ease-in-out'
+      className='bg-red-600 text-white rounded-lg p-6 shadow-lg text-center text-2xl sm:text-3xl font-semibold hover:bg-red-500 hover:scale-105 transition transform duration-300 flex flex-col items-center justify-center gap-2'
       ><GiStopwatch className='inline mr-2'/>
       Laps Dashboard</Link>
     </div>
