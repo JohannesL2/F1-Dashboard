@@ -25,7 +25,15 @@ const DriverDashboard = () => {
   const fetchData = async () => {
     try {
     const res = await axios.get('https://api.openf1.org/v1/drivers');
-    setCarData(res.data.slice(0, 20));
+    
+    const uniqueDrivers = res.data.reduce((acc, current) => {
+      const x = acc.find(item => item.driver_number === current.driver_number);
+      if (!x) return acc.concat([current]);
+      return acc;
+    }, [])
+
+
+    setCarData(uniqueDrivers.slice(0, 20));
     setLoading(false)
   } catch (error) {
     console.error('Error fetching f1 data', error);
