@@ -3,11 +3,19 @@ import axios from "axios"
 import { useRef, useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import { ImageModal } from '../components/ImageModal'
+import { SearchBar } from '../components/SearchBar'
 
 const DriverDashboard = () => {
     const [carData, setCarData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(true);
     const modalRef = useRef(null);
+
+    const filteredDrivers = carData.filter(driver =>
+      driver.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.team_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.driver_number.toString().includes(searchTerm)
+    )
 
     const openModal = (driver) => {
       modalRef.current?.show(driver)
@@ -37,7 +45,7 @@ useEffect(() => {
 //skeleton
 function SkeletonLoader() {
   return (
-    
+
 <div role="status" class="fixed inset-0 p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700 mt-30">
     <div class="flex items-center justify-between">
         <div>
@@ -105,6 +113,7 @@ function SkeletonLoader() {
   return (
     <div>
     
+    <div className='p-4 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6'>
           <Link 
       to='/'
       className='group inline-flex items-center gap-2 px-5 py-3 
@@ -116,7 +125,9 @@ function SkeletonLoader() {
       > <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
       Go back</Link>
 
-    
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+    </div>
+
     {loading ? (
       <SkeletonLoader/>
     ) : (
@@ -133,7 +144,7 @@ function SkeletonLoader() {
         </tr>
       </thead>
     <tbody>
-    {carData.map((item, index) => (
+    {filteredDrivers.map((item, index) => (
       <tr key={index} className="text-center border-b border-gray-700 
              bg-gray-900 hover:bg-gray-800 
              transition-colors duration-300">
@@ -156,7 +167,7 @@ function SkeletonLoader() {
 
     {/*Cards view for mobile*/}
     <div className='sm:hidden space-y-4 bg-gray-900 p-4'>
-      {carData.map((item) => (
+      {filteredDrivers.map((item) => (
         <div
           key={item.driver_number}
           className='bg-gradient-to-r from-gray-800 via-gray-900 to-black border border-red-600 rounded-xl flex items-center gap-6 p-5 shadow-lg hover:shadow-red-600 transition-shadow duration-300 text-white'
