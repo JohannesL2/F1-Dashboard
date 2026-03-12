@@ -19,42 +19,49 @@ export const ImageModal = forwardRef((props, ref) => {
     }
   }
 
+  if (!isOpen || !driver) return null;
+
 
   return (
-  <>
-  {isOpen && (
-<dialog className="modal modal-open">
-<div className="modal modal-open" onClick={handleBackgroundClick}>
-  <div className="modal-box relative bg-gradient-to-r from-red-700 via-black to-gray-800 border-4 border-red-600 shadow-lg shadow-red-700 p-6 rounded-xl">
-    
-    <h3 className="flex flex-col items-center text-center mb-6">
-    
-    <span
-    className="flex items-center gap-2 px-5 py-2 rounded-md shadow-lg border-2 border-red-600 text-xl font-bold italic" style={{ backgroundColor: `#${driver.team_colour}` }}
-    >
-      <GiCheckeredFlag className='text-white text-2xl'/>
-      <span className="text-white">#{driver.driver_number}</span>
-    </span>
+<dialog className="modal modal-open backdrop-blur-md" onClick={handleBackgroundClick}>
+  <div className="modal-box p-0 bg-[#15151e] border-b-8 shadow-2xl overflow-hidden relative max-w-2xl"
+       style={{ borderColor: `#${driver.team_colour}` }}>
 
-    <span className="block text-5xl font-extrabold italic tracking-wider text-white drop-shadow-[0_0_15px_rgba(255,0,0,0.9)]">{driver.full_name.toUpperCase()}</span>
-    </h3>
+      <div className='absolute -bottom-10 right-5 text-[14rem] text-white/[0.03] italic select-none pointer-events-none z-0'>
+      <GiCheckeredFlag className='text-white text-xl'/>
+      <span className="font-black">#{driver.driver_number}</span>
+      </div>
 
-    <div className='flex justify-center mb-6'>
+
+
+    <div className='p-8 relative z-10'>
+      <div className='flex justify-between items-start'>
+        <div>
+          <div className='flex items-center gap-2 mb-1'>
+            <div className='w-1 h-6' style={{ backgroundColor: `#${driver.team_colour}` }} />
+            <span className='text-sm font-bold tracking-[0.2em] text-gray-400 uppercase'>
+              {driver.team_name || "Formula 1 Professional"}
+            </span>
+          </div>
+          <div className='flex items-end'>
+          <h3 className='text-5xl font-black italic uppercase text-white tracking-tighter flex flex-wrap gap-2'>
+            <span className='text-white'>{driver.full_name.split(' ')[0]}</span>
+            <span className='text-white/70'>{driver.full_name.split(' ').slice(1).join(' ')}</span>
+          </h3>
+          </div>
+          </div>
+          <button 
+              onClick={() => setIsOpen(false)}
+              className="text-white/80 hover:text-white transition-colors text-2xl font-light cursor-pointer"
+            >✕</button>
+          </div>
       <img
         src={driver.headshot_url}
         alt='Driver'
-        className='w-64 h-64 object-contain rounded-full border-4 border-red-600 shadow-[0_0_25px_rgba(255,0,0,0.7)] bg-black p-2'
+        className='w-32 h-32 object-contain rounded-full border-2 border-red-600 shadow-[0_0_25px_rgba(255,0,0,0.7)] bg-black mt-4'
       />
     </div>
-    <div className='modal-action flex justify-center'>
-      <button className='hidden md:inline-block btn px-6 py-2 bg-gradient-to-r from-red-700 via-red-600 to-black text-white font-bold uppercase rounded-lg shadow-lg hover:scale-105 hover:shadow-red-500/50 transition-all duration-300' onClick={() => setIsOpen(false)}>
-        Close
-      </button>
-    </div>
   </div>
-</div>
 </dialog>
-)}
-</>
   )
 });
