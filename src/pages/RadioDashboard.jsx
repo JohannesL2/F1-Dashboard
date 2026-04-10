@@ -12,7 +12,7 @@ const RadioDashboard = () => {
   const handlePlay = (index, type) => {
     // Pausa alla ljud i båda listorna
     const allRefs = [...desktopAudioRefs.current, ...mobileAudioRefs.current];
-    allRefs.forEach((audio, i) => {
+    allRefs.forEach((audio, index) => {
       // Om det inte är just det ljudet vi startade, pausa det
       const targetList = type === 'desktop' ? desktopAudioRefs.current : mobileAudioRefs.current;
       if (audio && audio !== targetList[index]) {
