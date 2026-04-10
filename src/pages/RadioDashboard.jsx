@@ -1,12 +1,25 @@
-import React from 'react'
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { Link } from 'react-router-dom'
-import ReactPlayer from 'react-player'
+import React, { useEffect, useState, useRef } from 'react';
+import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const RadioDashboard = () => {
     const [carData, setCarData] = useState([]);
     const [loading, setLoading] = useState(true)
+
+    const desktopAudioRefs = useRef([]);
+  const mobileAudioRefs = useRef([]);
+
+  const handlePlay = (index, type) => {
+    // Pausa alla ljud i båda listorna
+    const allRefs = [...desktopAudioRefs.current, ...mobileAudioRefs.current];
+    allRefs.forEach((audio, i) => {
+      // Om det inte är just det ljudet vi startade, pausa det
+      const targetList = type === 'desktop' ? desktopAudioRefs.current : mobileAudioRefs.current;
+      if (audio && audio !== targetList[index]) {
+        audio.pause();
+      }
+    });
+  };
 
   useEffect(() => {
   const fetchData = async () => {
@@ -139,6 +152,7 @@ function SkeletonLoader() {
           <th className='hidden sm:table-cell'>Team</th>
           <th className='hidden md:table-cell'>Team Colour</th>
           <th className='hidden md:table-cell'>Country</th>
+          <th className='hidden md:table-cell md:pl-50'>Audio</th>
         </tr>
       </thead>
 <tbody>
@@ -162,7 +176,11 @@ function SkeletonLoader() {
       />
       <td className='hidden md:table-cell'>{item.country_code}</td>
       <td>
-        <audio controls className='mx-auto'>
+        <audio
+        ref={(el) => (desktopAudioRefs.current[index] = el)}
+                          onPlay={() => handlePlay(index, 'desktop')}
+                          controls
+        className='mx-auto h-8 opacity-80 hover:opacity-100 transition-opacity'>
           <source src={item.recording_url} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
@@ -174,7 +192,7 @@ function SkeletonLoader() {
 
     {/*Cards view for mobile*/}
     <div className='sm:hidden space-y-4 bg-gray-900 p-4'>
-      {carData.map((item) => (
+      {carData.map((item, index) => (
         <div
           key={item.driver_number}
           className='bg-gradient-to-r from-gray-800 via-gray-900 to-black border border-red-600 rounded-xl flex items-center gap-6 p-5 shadow-lg hover:shadow-red-600 transition-shadow duration-300 text-white'
@@ -187,10 +205,17 @@ function SkeletonLoader() {
               {item.full_name} <span className='font-normal'>{item.country_code}</span>
             </span>
             <span className='truncate text-sm text-gray-300'>
-<audio controls aria-label={`Radio clip from ${item.full_name}`} className=''>
-  <source src={item.recording_url} type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
+<div className="bg-white/5 rounded-xl p-2 border border-white/5">
+                    <audio 
+                      ref={(el) => (mobileAudioRefs.current[index] = el)}
+                      onPlay={() => handlePlay(index, 'mobile')}
+                      controls
+                      className="w-full h-10 filter invert brightness-200"
+                    >
+                      <source src={item.recording_url} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
             </span>
           </div>
           <div className='text-red-600 font-mono font-bold text-lg flex-shrink-0'>{item.driver_number}</div>
