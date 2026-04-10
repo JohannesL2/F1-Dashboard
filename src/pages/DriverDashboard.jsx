@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import { ImageModal } from '../components/ImageModal'
 import { SearchBar } from '../components/SearchBar'
+import Header from '../components/Header'
 
 const DriverDashboard = () => {
     const [carData, setCarData] = useState([]);
@@ -53,9 +54,8 @@ useEffect(() => {
 //skeleton
 function SkeletonLoader() {
   return (
-
-<div role="status" class="fixed inset-0 p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700 mt-30">
-    <div class="flex items-center justify-between">
+<div role="status" class="w-full p-4 space-y-4 border border-white/10 divide-y divide-white/10 rounded-xl bg-gray-900/50 animate-pulse">
+    <div class="flex items-center justify-between pt-4 first:pt-0">
         <div>
             <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
             <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
@@ -119,23 +119,17 @@ function SkeletonLoader() {
 
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen bg-[#0b0b0b] text-white font-sans pt-16 md:pt-20">
     
-    <div className='p-4 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6'>
-          <Link 
-      to='/'
-      className='group inline-flex items-center gap-2 px-5 py-3 
-             font-bold uppercase tracking-wide 
-             bg-gradient-to-r from-red-600 via-red-700 to-black 
-             text-white rounded-lg shadow-lg
-             transition-all duration-300 
-             hover:scale-105 hover:shadow-red-500/50 m-2'
-      > <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
-      Go back</Link>
+    <div className='max-w-7xl mx-auto w-full px-4 md:px-8 pb-4'>
+        <div className='flex justify-end'>
+          <div className="w-full sm:w-80"> 
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          </div>
+        </div>
+      </div>
 
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-    </div>
-
+<div className='max-w-7xl mx-auto w-full px-4 md:px-8'>
     {loading ? (
       <SkeletonLoader/>
     ) : (
@@ -172,6 +166,7 @@ function SkeletonLoader() {
     ))}
     </tbody>
     </table>
+    
 
     {/*Cards view for mobile*/}
     <div className='sm:hidden space-y-4 bg-gray-900 p-4'>
@@ -200,6 +195,7 @@ function SkeletonLoader() {
     </div>
     </>
     )}
+    </div>
     <ImageModal ref={modalRef}/>
     </div>
     
