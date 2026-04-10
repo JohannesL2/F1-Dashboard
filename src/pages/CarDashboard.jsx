@@ -42,83 +42,18 @@ useEffect(() => {
 //skeleton
 function SkeletonLoader() {
   return (
-    
-<div role="status" class="fixed inset-0 p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-sm shadow-sm animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700 mt-30">
-    <div class="flex items-center justify-between">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-    <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-    <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-    <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-    <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-        <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-        <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-        <div class="flex items-center justify-between pt-4">
-        <div>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
-            <div class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
-    </div>
-    <span class="sr-only">Loading...</span>
-</div>
-
+    <div className="w-full space-y-4 animate-pulse px-4">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="h-24 bg-gray-900/50 border border-white/10 rounded-xl" />
+        ))}
+      </div>
   )
 }
 
 
   return (
-    <div>
-    
-          <Link 
-      to='/'
-      className='group inline-flex items-center gap-2 px-5 py-3 font-bold uppercase tracking-wide 
-      bg-gradient-to-r from-red-600 via-red-700 to-black 
-      text-white rounded-lg shadow-lg
-      transition-all duration-300 
-      hover:scale-105 hover:shadow-red-500/50 m-2'
-      > <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.117 12l7.527 6.235-.644.765-9-7.521 9-7.479.645.764-7.529 6.236h21.884v1h-21.883z"/></svg>
-      Go back</Link>
+    <div className='min-h-screen bg-[#0b0b0b] text-white pt-24 pb-10 overflow-x-hidden'>
+    <div className='max-w-7xl mx-auto px-4'>
 
 <h1 className="text-xl font-bold mb-4">F1 Constructor Standings 2025</h1>
     
@@ -158,13 +93,16 @@ function SkeletonLoader() {
     </table>
 
     {/*Cards view for mobile*/}
-    <div className='sm:hidden space-y-4 bg-gray-900 p-4'>
+    <div className='sm:hidden space-y-4 p-4 bg-[#0b0b0b] overflow-x-hidden'>
       {carData.map((item) => (
-        <div
-          key={item.Constructor.constructorId}
-          className='bg-gradient-to-r from-gray-800 via-gray-900 to-black border border-red-600 rounded-xl flex items-center gap-6 p-5 shadow-lg hover:shadow-red-600 transition-shadow duration-300 text-white'
-        >
-          <img src={team_logo.McLaren} alt="" />
+       <div className='flex items-center gap-4 mb-3'>
+        <div className='w-12 h-12 flex-shrink-0'>
+           <img 
+             src={team_logo[item.Constructor.name] || team_logo.McLaren} 
+             alt="" 
+             className="w-full h-full object-contain"
+           />
+        </div>
 <a href={item.Constructor.url} className='text-blue-600 hover:underline'>{item.Constructor.name}</a>
           <div className='flex flex-col flex-grow min-w-0'>
             <span className='font-bold text-lg flex items-center gap-2'>
@@ -177,14 +115,15 @@ function SkeletonLoader() {
           <div className='text-red-600 font-mono font-bold text-lg flex-shrink-0'><span className='text-stone-300'>Wins:</span> {item.wins}</div>
           <div className='w-8 h-8 rounded-full flex-shrink-0 border-2 border-white shadow-md' style={{backgroundColor: `#${item.team_colour}`}}/>
         </div>
+        
       ))}
       
     </div>
     </>
     )}
     </div>
+    </div>
     
-  )
-}
+  )}
 
 export default CarDashboard
