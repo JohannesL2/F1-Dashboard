@@ -46,3 +46,17 @@ A sleek and interactive **Formula 1 dashboard** built with **React**, **Tailwind
 1. Clone the repo:
 ```bash
 git clone https://github.com/JohannesL2/f1-dashboard.git
+```
+2. Navigate to the project directory:
+```bash
+cd f1-dashboard
+```
+
+3. Install dependencies:
+```bash
+npm install
+```
+4. Start the development server:
+```bash
+npm run dev
+```
