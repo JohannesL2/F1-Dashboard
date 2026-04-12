@@ -1,7 +1,20 @@
 import React, { useEffect, useRef } from 'react'
 
-export default function RaceInfoModal({ isOpen, onClose }) {
+export default function RaceInfoModal({ isOpen, onClose, session }) {
     const modalRef = useRef(null);
+
+    const userLocale = navigator.language;
+
+const localTime = new Date(session.date_start).toLocaleTimeString(userLocale, {
+  hour: '2-digit',
+  minute: '2-digit',
+});
+
+const localDate = new Date(session.date_start).toLocaleDateString(userLocale, {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+});
 
     useEffect(() => {
         if (isOpen) {
@@ -11,6 +24,8 @@ export default function RaceInfoModal({ isOpen, onClose }) {
         }
     }, [isOpen]);
 
+    if (!session) return null;
+
   return (
 <dialog
     ref={modalRef}
@@ -18,14 +33,41 @@ export default function RaceInfoModal({ isOpen, onClose }) {
     onClose={onClose}
     >
   <div className="modal-box bg-[#15151e] shadow-2xl overflow-hidden relative max-w-2xl">
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to close</p>
-    <div className="modal-action">
-      <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
-        <button className="btn">Close</button>
-      </form>
+
+    <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 z-50 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 hover:bg-white/10 text-white/50 hover:text-white transition-all cursor-pointer"
+        >
+          ✕
+    </button>
+
+    <h3 className="font-bold text-lg py-4">Next Event</h3>
+
+    <div className="bg-red-600 text-white px-3 py-1 rounded font-bold text-sm italic">
+            {session.year}
+            <p className="text-lg">{session.meeting_name}</p>
     </div>
+
+    <div className="grid grid-cols-2 gap-4 mt-4">
+            <div className="bg-white/5 p-4 rounded-lg border border-white/5">
+              <p className="text-gray-400 text-xs uppercase font-bold mb-1">Circuit</p>
+              <p className="text-md font-semibold">{session.circuit_short_name}</p>
+            </div>
+            <div className="bg-white/5 p-4 rounded-lg border border-white/5">
+              <p className="text-gray-400 text-xs uppercase font-bold mb-1">Session</p>
+              <p className="text-md font-semibold">{session.session_name}</p>
+            </div>
+          </div>
+
+          <div className="bg-white/5 p-4 rounded-lg border border-white/5 mt-4">
+            <p className="text-gray-400 text-xs uppercase font-bold mb-1">Local Start Time</p>
+            <p className="text-md">
+              <div className="flex items-baseline gap-2">
+      <span className="text-md font-semibold text-white capitalize">{localTime}</span>
+      <span className="text-md font-semibold text-white capitalize">{localDate}</span>
+    </div>
+            </p>
+          </div>
   </div>
 
   <form method='dialog' className='modal-backdrop'>

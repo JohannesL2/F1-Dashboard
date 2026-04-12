@@ -114,6 +114,7 @@ useEffect(() => {
           <RaceInfoModal
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
+            session={session}
           />
         </div>
       </div>
