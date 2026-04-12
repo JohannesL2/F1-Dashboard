@@ -1,5 +1,8 @@
 # F1 Driver Dashboard 🏎️
 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
 A sleek and interactive **Formula 1 dashboard** built with **React**, **Tailwind CSS**, and **DaisyUI**, showcasing drivers, teams, and stats with modern UI elements and responsive design.
 
 [Live Demo](https://johannesl2-f1dashboard.netlify.app/)
