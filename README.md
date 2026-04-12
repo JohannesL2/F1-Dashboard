@@ -19,8 +19,10 @@ A sleek and interactive **Formula 1 dashboard** built with **React**, **Tailwind
 
 ## Screenshot
 
-![Desktop Screenshot](https://raw.githubusercontent.com/JohannesL2/F1-Dashboard/42db331ca795efb46b24cc85b70e53c0d5c993a4/assets/desktop_screenshot.png)
-![Mobile Screenshot](https://raw.githubusercontent.com/JohannesL2/F1-Dashboard/42db331ca795efb46b24cc85b70e53c0d5c993a4/assets/mobile_screenshot.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JohannesL2/F1-Dashboard/42db331ca795efb46b24cc85b70e53c0d5c993a4/assets/desktop_screenshot.png" width="65%" alt="Desktop Screenshot">
+  <img src="https://raw.githubusercontent.com/JohannesL2/F1-Dashboard/42db331ca795efb46b24cc85b70e53c0d5c993a4/assets/mobile_screenshot.png" width="25%" alt="Mobile Screenshot">
+</p>
 
 ---
 
