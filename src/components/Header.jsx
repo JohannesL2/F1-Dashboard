@@ -21,11 +21,14 @@ const Header = () => {
           <Link to="/driver_dashboard" className={`${isActive('/driver_dashboard')} transition-all`}>
             Drivers
           </Link>
+          <Link to="/radio_dashboard" className={`${isActive('/radio_dashboard')} transition-all`}>
+            Radio
+          </Link>
           <Link to="/car_dashboard" className={`${isActive('/car_dashboard')} transition-all`}>
             Telemetry
           </Link>
-          <Link to="/radio_dashboard" className={`${isActive('/radio_dashboard')} transition-all`}>
-            Radio
+          <Link to="/circuit_dashboard" className={`${isActive('/circuit_dashboard')} transition-all`}>
+            Circuit
           </Link>
         </nav>
       </div>
