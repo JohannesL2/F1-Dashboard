@@ -3,19 +3,6 @@ import React, { useEffect, useRef } from 'react'
 export default function RaceInfoModal({ isOpen, onClose, session }) {
     const modalRef = useRef(null);
 
-    const userLocale = navigator.language;
-
-const localTime = new Date(session.date_start).toLocaleTimeString(userLocale, {
-  hour: '2-digit',
-  minute: '2-digit',
-});
-
-const localDate = new Date(session.date_start).toLocaleDateString(userLocale, {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long',
-});
-
     useEffect(() => {
         if (isOpen) {
             modalRef.current?.showModal();
@@ -25,6 +12,19 @@ const localDate = new Date(session.date_start).toLocaleDateString(userLocale, {
     }, [isOpen]);
 
     if (!session) return null;
+
+    const userLocale = navigator.language;
+
+    const localTime = new Date(session.date_start).toLocaleTimeString(userLocale, {
+        hour: '2-digit',
+        minute: '2-digit',
+    });
+
+    const localDate = new Date(session.date_start).toLocaleDateString(userLocale, {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+    });
 
   return (
 <dialog
