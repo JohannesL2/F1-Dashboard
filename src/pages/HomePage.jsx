@@ -6,12 +6,14 @@ import { GiStopwatch, GiTrophy } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 import { Typewriter } from 'react-simple-typewriter'
 import Header from '../components/Header'
+import RaceInfoModal from '../components/RaceInfoModal'
 
 
 const HomePage = () => {
   const [session, setSession] = useState(null);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hrs: 0, min: 0});
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
 useEffect(() => {
   const getData = async () => {
@@ -101,9 +103,18 @@ useEffect(() => {
               <div><p className="text-3xl font-black tabular-nums">{String(timeLeft.min).padStart(2, '0')}</p><p className="text-[10px] uppercase text-red-300 font-bold">Min</p></div>
             </div>
           </div>
-          <button className="bg-white text-black px-8 py-3 rounded-full font-black uppercase text-sm hover:bg-gray-200 transition-all hover:scale-105 active:scale-95 shadow-lg leading-none">
+
+          <button
+            className="bg-white text-black px-8 py-3 rounded-full font-black uppercase text-sm hover:bg-gray-200 transition-all hover:scale-105 active:scale-95 shadow-lg leading-none cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+            >
               Race Info
-            </button>
+          </button>
+
+          <RaceInfoModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
         </div>
       </div>
 

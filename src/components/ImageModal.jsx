@@ -1,4 +1,4 @@
-import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
+import React, { useState, forwardRef, useImperativeHandle } from 'react'
 import { GiCheckeredFlag } from "react-icons/gi";
 
 export const ImageModal = forwardRef((props, ref) => {
