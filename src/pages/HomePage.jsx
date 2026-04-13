@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
+import Footer from '../components/layout/Footer'
 import { FaHelmetSafety, FaCarSide, FaHeadset } from 'react-icons/fa6'
 import { GiStopwatch, GiTrophy } from 'react-icons/gi'
 import { GoLocation } from 'react-icons/go'
 import { Typewriter } from 'react-simple-typewriter'
-import Header from '../components/Header'
-import RaceInfoModal from '../components/RaceInfoModal'
+import RaceInfoModal from '../components/racing/RaceInfoModal'
 
 
 const HomePage = () => {
@@ -120,7 +119,7 @@ useEffect(() => {
       </div>
 
       {/* MAIN DASHBOARD GRID */}
-      <main className="max-w-6xl mx-auto w-full py-20 px-4">
+      <div className="max-w-6xl mx-auto w-full py-20 px-4">
         <h3 className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-10 text-center">Select Dashboard</h3>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,9 +155,7 @@ useEffect(() => {
             disabled 
           />
         </div>
-      </main>
-
-      <Footer />
+      </div>
     </div>
   )
 }

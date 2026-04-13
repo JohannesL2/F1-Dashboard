@@ -2,9 +2,9 @@ import React from 'react'
 import axios from "axios"
 import { useRef, useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-import { ImageModal } from '../components/ImageModal'
-import { SearchBar } from '../components/SearchBar'
-import Header from '../components/Header'
+import { ImageModal } from '../components/common/ImageModal'
+import { SearchBar } from '../components/common/SearchBar'
+import Header from '../components/layout/Header'
 
 const DriverDashboard = () => {
     const [carData, setCarData] = useState([]);

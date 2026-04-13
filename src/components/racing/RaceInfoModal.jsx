@@ -61,12 +61,10 @@ export default function RaceInfoModal({ isOpen, onClose, session }) {
 
           <div className="bg-white/5 p-4 rounded-lg border border-white/5 mt-4">
             <p className="text-gray-400 text-xs uppercase font-bold mb-1">Local Start Time</p>
-            <p className="text-md">
               <div className="flex items-baseline gap-2">
       <span className="text-md font-semibold text-white capitalize">{localTime}</span>
       <span className="text-md font-semibold text-white capitalize">{localDate}</span>
     </div>
-            </p>
           </div>
   </div>
 
