@@ -100,7 +100,7 @@ function SkeletonLoader() {
 
 
   return (
-    <div>
+    <div className='min-h-screen bg-[#0b0b0b] text-white pt-28 pb-10 overflow-x-hidden'>
 
 <h1 className="text-xl font-bold mb-4">F1 Constructor Standings 2025</h1>
     
