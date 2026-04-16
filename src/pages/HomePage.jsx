@@ -168,7 +168,7 @@ const DashboardCard = ({ to, icon, title, desc, disabled }) => {
       ${disabled ? 'bg-gray-900 opacity-50 cursor-not-allowed' : 'bg-[#151515] hover:bg-[#1f1f1f] border border-white/5 hover:border-red-500/50'}
       transition-all duration-300 shadow-xl
     `}>
-      <div className={`text-4xl mb-4 transition-transform duration-500 ${!disabled && 'group-hover:scale-110 group-hover:rotate-6 text-red-500'}`}>
+      <div className={`text-4xl mb-4 transition-transform duration-500 ${!disabled && 'group-hover:scale-110 text-red-500'}`}>
         {icon}
       </div>
       <div>
